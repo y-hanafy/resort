@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+  <body>
+    {% include 'navbar.html' %}
+    {% block content %}
+    <div class="container">
+        <form action  = "" method = "POST">
+          <h4 style="text-align: center; margin-top: 10px"><b>Special Offers</b></h4><br>
+          <table class ="table">
+            <tr>
+              <th>Special Offer</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Select</th>
+            </tr>
+
+            <tr>
+              <td><img src = "static/images/50offf.jpg" width="150" height="150"></td>
+              <td><p>50% off all Rooms</p></td>			
+              {% if session['offer_type'] == "offer50": %}
+              <td>Activated</td>
+              <td><button type="submit" name = "offer" value="offer50" class="form-control">Deactivate Offer</td>
+              {% else %}
+              <td>Not Activated</td>
+              <td><button type="submit" name = "offer" value="offer50" class="form-control">Activate Offer</td>
+            {% endif %}
+            </tr>
+            
+            <tr>
+              <td><img src = "static/images/25offf.jpg" width="150" height="150"></td>
+              <td><p>25% off all Rooms</p></td>
+              {% if session['offer_type'] == "offer25": %}
+              <td>Activated</td>
+              <td><button type="submit" name = "offer" value="offer25" class="form-control">Deactivate Offer</td>
+              {% else %}
+              <td>Not Activated</td>
+              <td><button type="submit" name = "offer" value="offer25" class="form-control">Activate Offer</td>
+            {% endif %}
+            </tr>
+
+            <tr>
+              <td><img src = "static/images/10offf.jpg" width="150" height="150"></td>
+              <td><p>10% off all Rooms</p></td>
+              {% if session['offer_type'] == "offer10": %}
+              <td>Activated</td>
+              <td><button type="submit" name = "offer" value="offer10" class="form-control">Deactivate Offer</td>
+              {% else %}
+              <td>Not Activated</td>
+              <td><button type="submit" name = "offer" value="offer10" class="form-control">Activate Offer</td>
+            {% endif %}
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <h3>{{ message }}
+        {% endfor %}
+      {% endif %}
+    {% endwith %}  
+    {% endblock %}
+  </body>
+</html>
+

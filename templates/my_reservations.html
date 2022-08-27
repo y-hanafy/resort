@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  </head>
+
+  <body>
+    {% include 'navbar.html' %}
+    <link type="text/css" rel="stylesheet" href="static/css/index.css">
+    {% block content %}
+      <div class="my-reservations-container">
+        <table class="table">
+          <h4 class="page-title">My Reservations</h4>
+          <tr>
+            <th>Reservation Number</th>
+            <th>First Name</th>
+            <th>Last Name </th>
+            <th>Room Number</th>
+            <th>Check-In Date</th>
+            <th>Check-Out Date</th>
+            <th>Number of Guests</th>
+            <th>Reservation Date</th>
+            <th>Price</th>
+          </tr>
+
+          {% for result in results %}
+            <tr>
+              <td>{{ result["Reservation_id"] }}</td>
+              <td>{{ result["First_name"] }}</td>
+              <td>{{ result["Last_name"] }} </td>
+              <td>{{ result["Room_type"] }} {{ result["Room_id"] }}</td>
+              <td>{{ result["Check_in_date"] }}</td>
+              <td>{{ result["Check_out_date"] }}</td>
+              <td>{{ result["Guests"] }}</td>
+              <td>{{ result["Reservation_date"] }}</td>
+              <td>${{ result["Reservation_price"] }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    {% endblock %}
+  </body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+  <body>
+    {% include 'navbar.html' %}
+    {% block content %}
+    <div class="container">
+      <br/>
+        <h1>You are not logged in</h1>
+        <a href = '/login'></b>Click here to log in</b></a>
+    </div>
+    {% endblock %}
+  </body>
+  

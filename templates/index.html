@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+  <body>   
+    {% include 'navbar.html' %}   
+    <link type="text/css" rel="stylesheet" href="static/css/index.css">
+    {% block content %}        
+        <div class="container">
+          <div class="attractions-wrapper">         
+          <h4 class="page-title">Attractions</h4>
+          <div class="page-grid">
+            <div class="grid-item">
+              <h5 class="grid-item-title">Pool Area</h5>
+              <div class="grid-item-body">
+                <img src="static/images/resort.jpg" class="grid-item-img" alt="...">
+              </div>
+            </div>
+            <div class="grid-item">
+              <h5 class="grid-item-title">Indoor Water Park</h5>
+              <div class="grid-item-body">
+                <img src="static/images/indwater.jpg" class="grid-item-img" alt="...">
+              </div>
+            </div>
+            <div class="grid-item">
+              <h5 class="grid-item-title">Skywalk</h5>
+              <div class="grid-item-body">
+                <img src="static/images/sky.jpg" class="grid-item-img" alt="...">
+              </div>
+            </div>
+            <div class="grid-item">
+              <h5 class="grid-item-title">Amusement Park</h5>
+              <div class="grid-item-body">
+                <img src="static/images/amuse.jpg" class="grid-item-img" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

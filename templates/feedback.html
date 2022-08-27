@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  <link type="text/css" rel="stylesheet" href="static/css/index.css">
+  {% block content %}
+  <div class="form-container">
+    <div class="wrapper">
+      <h4 class="page-title">Feedback</h4>
+      <div class="form-group feedback">
+        <p>Leave Feedback</p>
+        <form action="" method="POST">
+          <div class="element">
+            <span>First Name:&nbsp&nbsp</span>
+            <input type="text" name="fname" class="form-control" required>
+          </div>
+
+          <div class="element">
+            <span>Last Name: </span>
+            <input type="text" name="lname" class="form-control" required>
+          </div>
+
+          <div class="element">
+            <span>E-mail: </span>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+
+          <div class="element">
+            <span>Feedback: </span>
+            <textarea type="text" name="feedback" class="form-control" cols="65" rows="5" required></textarea>
+          </div>
+
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+      <h3>{{ message }}</h3>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      </p>
+      <div class="card-columns">
+        {% for result in results %}
+        <div class="card">
+          <h5 class="card-title">
+            <img class="card-img-top" src="static/images/user.png" alt="Card image cap">
+            {{ result["First_name"] }} {{ result["Last_name"] }}
+          </h5>
+          <div class="card-body">
+            <p class="card-text">{{ result["Feedback"] }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+
+</html>

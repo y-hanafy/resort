@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+  <body>
+    {% include 'navbar.html' %}
+    {% block content %}
+      <div class="container">
+        <br/>
+          <h1>You are already logged in as {{ session['name'] }}</h1>
+          <a href = '/logout'></b>Click here to logout</b></a>     
+      </div>
+    {% endblock %}
+  </body>
+  
+</html>

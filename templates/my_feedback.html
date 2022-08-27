@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  </head>
+
+  <body>
+    {% include 'navbar.html' %}
+    <link type="text/css" rel="stylesheet" href="static/css/index.css">
+    {% block content %}
+      <h4 class="page-title">My Feedback</h4>
+      <div class="form-container">
+        <div class="card-columns">
+          {% for result in results %}
+            <div class="card">
+              <h5 class="card-title">        
+                <img class="card-img-top" src="static/images/user.png" alt="Card image cap">
+                {{ result["First_name"] }} {{ result["Last_name"] }}
+              </h5>
+              <div class="card-body">
+                <p class="card-text">{{ result["Feedback"] }}</p>
+              </div>
+            </div>        
+          {% endfor %}
+        </div>
+      </div>
+    {% endblock %}  
+  </body>
+</html>
+
+

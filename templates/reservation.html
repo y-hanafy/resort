@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  {% include 'navbar.html' %}
+  <link type="text/css" rel="stylesheet" href="static/css/index.css">
+  {% block content %}
+  <div class="container">
+    <form class='reservation-form' action="" method="POST">
+      <table class="room-choice-table">
+        <tr>
+          <th>
+            <h4 class="page-title">Suite</h4>
+          </th>
+          <th></th>
+          <th>
+            <h4 class="page-title">Description</h4>
+          </th>
+          <th>
+            <h4 class="page-title">Price/Night</h4>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <label>
+              <input type="radio" name="room_type" value="King" required />
+              <b>KING</b>
+            </label>
+          </td>
+          <td class="img-container">
+            <img src="static/images/King.jpg" class="room-img" />
+          </td>
+          <td class="room-description">
+            <p>
+              Two king bed, queen sofa sleeper, living room group with
+              fireplace, fully equipped kitchen, dining room set, whirlpool
+              tub, 2 flat screen televisions. Patio/balcony with
+              furniture.<br /><br />
+              Please note: this room is located in the Sands Building which
+              is connected to the main resort by an enclosed skywalk.
+              Admission to Wisconsin's Largest Indoor Waterpark included for
+              each registered hotel guest! Room is priced for up to 4
+              guests.
+            </p>
+          </td>
+          {% if session['offer_type'] == "offer50": %}
+          <td>
+            Limited Time!! - 50% Off<br /><del>$300</del><br /><br />
+            <p>$150</p>
+          </td>
+          {% elif session['offer_type'] == "offer25": %}
+          <td>
+            Limited Time!! - 25% Off<br /><del>$300</del><br /><br />
+            <p>$225</p>
+          </td>
+          {% elif session['offer_type'] == "offer10": %}
+          <td>
+            Limited Time!! - 10% Off<br /><del>$300</del><br /><br />
+            <p>$270</p>
+          </td>
+          {% else %}
+          <td>
+            <p>$300</p>
+          </td>
+          {% endif %}
+        </tr>
+
+        <tr>
+          <td>
+            <label>
+              <input type="radio" name="room_type" value="Queen" />
+              <b>QUEEN</b>
+            </label>
+          </td>
+          <td class="img-container">
+            <img src="static/images/Queen.jpg" class="room-img" />
+          </td>
+          <td class="room-description">
+            <p>
+              One queen bed, full bath. Work desk & chairs. Patio/balcony
+              with furniture.<br /><br />
+              Please note: this room is located in the Sands Building which
+              is connected to the main resort by an enclosed skywalk.
+              Admission to Wisconsin's Largest Indoor Waterpark included for
+              each registered hotel guest! Room is priced for up to 4
+              guests.
+            </p>
+          </td>
+          {% if session['offer_type'] == "offer50": %}
+          <td>
+            Limited Time!! - 50% Off<br /><del>$200</del><br /><br />
+            <p>$100</p>
+          </td>
+          {% elif session['offer_type'] == "offer25": %}
+          <td>
+            Limited Time!! - 25% Off<br /><del>$200</del><br /><br />
+            <p>$150</p>
+          </td>
+          {% elif session['offer_type'] == "offer10": %}
+          <td>
+            Limited Time!! - 10% Off<br /><del>$200</del><br /><br />
+            <p>$180</p>
+          </td>
+          {% else %}
+          <td>
+            <p>$200</p>
+          </td>
+          {% endif %}
+        </tr>
+
+        <tr>
+          <td>
+            <label>
+              <input type="radio" name="room_type" value="Full" />
+              <b>FULL</b>
+            </label>
+          </td>
+          <td class="img-container">
+            <img src="static/images/Full.jpeg" class="room-img" />
+          </td>
+          <td class="room-description">
+            <p>
+              One full bed, full bath. Work desk & chairs. Patio/balcony
+              with furniture.<br /><br />
+              Please note: this room is located in the Sands Building which
+              is connected to the main resort by an enclosed skywalk.
+              Admission to Wisconsin's Largest Indoor Waterpark included for
+              each registered hotel guest! Room is priced for up to 4
+              guests.
+            </p>
+          </td>
+          {% if session['offer_type'] == "offer50": %}
+          <td>
+            Limited Time!! - 50% Off<br /><del>$100</del><br /><br />
+            <p>$50</p>
+          </td>
+          {% elif session['offer_type'] == "offer25": %}
+          <td>
+            Limited Time!! - 25% Off<br /><del>$100</del><br /><br />
+            <p>$75</p>
+          </td>
+          {% elif session['offer_type'] == "offer10": %}
+          <td>
+            Limited Time!! - 10% Off<br /><del>$100</del><br /><br />
+            <p>$90</p>
+          </td>
+          {% else %}
+          <td>
+            <p>$100</p>
+          </td>
+          {% endif %}
+        </tr>
+      </table>
+
+      <table class="reservation-input-table">
+
+        <tr>
+          <th>Check-in date:</th>
+          <th>Check-out date:</th>
+          <th>First Name:</th>
+          <th>Last Name:</th>
+          <th>Email:</th>
+          <th>Guests:</th>
+        </tr>
+
+        <tr>
+
+          <td>
+            <input type="date" class="form-control" name="check-in" value="{{ today }}" min="{{ today }}" required />
+          </td>
+
+          <td>
+            <input type="date" class="form-control" name="check-out" value="{{ tomorrow }}" min="{{ tomorrow }}" required />
+          </td>
+
+          <td>
+            <input type="text" class="form-control" name="f_name" required />
+          </td>
+
+          <td>
+            <input type="text" class="form-control" name="l_name" required />
+          </td>
+
+          <td>
+            <input type="email" class="form-control" name="e_mail" required />
+          </td>
+
+          <td>
+            <select class="no_of_guests" name="no_of_guests">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </td>
+
+          <td>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">Checkout</button>
+            </div>
+          </td>
+
+        </tr>
+      </table>
+    <p>
+      <br>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <h3>{{ message }}</h3>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </p>
+    </form>
+  </div>
+  {% endblock %}
+</body>
+
+</html>

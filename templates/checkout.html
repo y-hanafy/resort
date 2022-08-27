@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+{% include 'navbar.html' %}
+<link type="text/css" rel="stylesheet" href="static/css/index.css">
+{% block content %}
+
+	{% set order_info = session.get('user_info', []) %}
+	{% set room_type = order_info[0] %}
+	{% set max_value = order_info[1] %}
+	{% set user_id = order_info[2] %}
+	{% set res_fname = order_info[3] %}
+	{% set res_lname = order_info[4] %}
+	{% set res_email = order_info[5] %}
+	{% set check_in_date = order_info[6] %}
+	{% set check_out_date = order_info[7] %}
+	{% set no_of_guests = order_info[8] %}
+	{% set todays_date = order_info[9] %}
+	{% set room_price = order_info[10] %}
+	{% set reservation_price = order_info[11] %}
+
+<div class="container">
+	<div class="form-group checkout">
+  <h4 class="page-title">Checkout</h4>
+		<form action="" method="POST">
+			<table class ="table table-bordered">
+				<tr>
+				<th>Room Suite</th>
+				<td>{{ room_type }}</td>
+				</tr>
+
+				<tr>
+				<th>Name</th>
+				<td>{{ res_fname }} {{ res_lname }}</td>
+				</tr>
+
+				<tr>
+				<th>Email</th>
+				<td>{{ res_email }}</td>
+				</tr>
+
+				<tr>
+				<th>Check-In Date</th>
+				<td>{{ check_in_date }}</td>
+				</tr>
+
+				<tr>
+				<th>Check-Out Date</th>
+				<td>{{ check_out_date }}</td>
+				</tr>
+
+				<tr>
+				<th>Number of Guests</th>
+				<td>{{ no_of_guests }}</td>
+				</tr>
+
+				<tr>
+				<th>Price/Night</th>
+				<td>${{ room_price }}</td>
+				</tr>
+
+				<tr>
+				<th>Total Price</th>
+				<td>${{ reservation_price }}</td>
+				</tr>			
+			</table>
+      <br>
+			<b>Need to change something? <a href="javascript:history.back()">Go back<br></a></b>
+			<br>
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Place Order</button>
+      </div>
+		</form>
+	</div>
+</div>
+	
+{% endblock %}
+
+</body>
+</html>

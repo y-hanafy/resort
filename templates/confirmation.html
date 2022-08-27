@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+{% include 'navbar.html' %}
+<link type="text/css" rel="stylesheet" href="static/css/index.css">
+{% block content %}
+<div class="container">
+	<div class="form-group checkout">
+    <h4 class="page-title">Reservation details</h4>
+		<form action="" method="POST">
+			<table class ="table table-bordered">
+				{% for result in session.get('my_list', []) %}
+				<tr>
+				<th>Reservation Number</th>
+				<td>{{ result["Reservation_id"] }}</td>
+				</tr>
+
+				<tr>
+				<th>Room Suite & Number</th>
+				<td>{{ result["Room_type"] }} {{ result["Room_id"] }}</td>
+				</tr>
+
+				<tr>
+				<th>Reservation Date</th>
+				<td>{{ result["Reservation_date"] }}</td>
+				</tr>
+
+				<tr>
+				<th>Name</th>
+				<td>{{ result["First_name"] }} {{ result["Last_name"] }}</td>
+				</tr>
+
+				<tr>
+				<th>Email</th>
+				<td>{{ result["Email"] }}</td>
+				</tr>
+
+				<tr>
+				<th>Check-In Date</th>
+				<td>{{ result["Check_in_date"] }}</td>
+				</tr>
+
+				<tr>
+				<th>Check-Out Date</th>
+				<td>{{ result["Check_out_date"] }}</td>
+				</tr>
+
+				<tr>
+				<th>Number of Guests</th>
+				<td>{{ result["Guests"] }}</td>
+				</tr>
+
+				<tr>
+				<th>Price/Night</th>
+				<td>${{ result["Room_price"] }}</td>
+				</tr>
+
+				<tr>
+				<th>Price</th>
+				<td>${{ result["Reservation_price"] }}</td>
+				</tr>
+		</table>
+	</div>
+</div>
+{% endfor %}
+{% endblock %}
+
+
+</body>
+</html>

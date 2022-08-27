@@ -1,0 +1,234 @@
+  /* UNIVERSAL */
+
+.container * { 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;  
+  font-family: Arial, sans-serif;
+  line-height: 18pt;
+}
+
+body, html {    
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+  /* ATTRACTIONS */
+
+.attractions-wrapper {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;   
+  max-width: 1350px; 
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size:x-large;
+  margin: 10px;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  
+  border: 1px solid lightgray;
+  margin-bottom: 20px;
+}
+
+.grid-item {
+  margin: 5px;
+}
+
+.grid-item-title {
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  font-weight: 650;
+  font-size: larger;
+}
+
+.grid-item-body {  
+  display: flex;
+}
+
+.grid-item-img {
+  width: 100%;
+  max-height: 35vh;
+  max-width: 50vw;  
+}
+
+  /* RESERVATION */
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 1350px;
+}
+
+.room-choice-table { 
+  border-collapse: collapse; 
+}
+
+.room-choice-table tr {
+  border-bottom: 1px solid lightgray; 
+}
+
+.room-choice-table th > * {
+  font-weight: 700;
+  font-size: x-large;
+}
+
+.room-choice-table td {
+  padding: 10px 15px; 
+  vertical-align: top;
+}
+
+.room-choice-table label {
+  display: flex;
+}
+
+.room-choice-table b {
+  padding-left: 5px;
+}
+
+.img-container {
+  display: flex;
+  max-height: 20vh;
+  max-width: 32vh;
+}
+
+.room-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.room-description {
+  padding-top: 10px;
+  max-width: 35vw;
+}
+
+.reservation-input-table {
+  border-collapse: collapse; 
+}
+
+.reservation-input-table th {
+  padding: 10px 0 5px 5px;
+  text-align: left;
+}
+
+.reservation-input-table td {
+  padding-right: 5px;
+}
+
+.reservation-input-table input,
+.reservation-input-table select {    
+  font-size: large;
+  padding: 8px 22px;
+  border: 1px solid lightgray; 
+  border-radius: 5px;
+  appearance: none;  
+  background-color: white;
+}
+
+.checkout-button {
+  padding: 8px 22px;
+  margin-left: 10px;
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  border: 1px solid lightgray; 
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+ /* FEEDBACK */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.form-container .card {
+  min-width: 24rem;
+  max-width: 46rem;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.form-container img {
+  width: 70px;
+}
+
+ /* My Reservations */
+
+ .my-reservations-container {
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+ }
+
+ .my-reservations-container table {
+  max-width: 1350px;
+ }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+ }
+
+ .form-container .form-group {  
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 40px 30px;  
+  justify-content: center;
+  width: 350px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 5px gray;
+ }
+
+.form-group.signup {
+  width: 500px;
+}
+
+.form-group.feedback {
+  width: auto;
+  box-shadow: none;
+}
+
+.form-group.checkout {  
+  display: flex;
+  flex-direction: column;
+  min-width: 455px;
+}
+
+ .form-container span {
+  font-size: small;
+  font-weight: 600;
+  display: block;
+  padding-bottom: 5px;
+ }
+
+ .form-container .element {
+  padding-bottom: 20px;
+ }
+
+ .create-account-container {
+  display: flex;
+  justify-content: center;
+ }
+
+.d-grid.gap-2 button{
+  padding: 8px;
+}

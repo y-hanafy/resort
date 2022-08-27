@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  {% include 'navbar.html' %}
+  <link type="text/css" rel="stylesheet" href="static/css/index.css">
+  {% block content %}
+  <div class="form-container">        
+    <h4 class="page-title">Create Account</h4>
+    <div class="form-group signup">
+      <p>Create your account</p>
+      <form action="" method="POST">
+        <div class="element">
+          <span>First Name </span>
+          <input type="text" name="fname" class="form-control" required>
+        </div>
+
+        <div class="element">
+          <span>Last Name </span>
+          <input type="text" name="lname" class="form-control" required>
+        </div>
+
+        <div class="element">
+          <span>E-mail </span>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+
+        <div class="element">
+          <span>Password </span>
+          <input type="password" name="password" class="form-control" required>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary">Create Account</button>
+        </div>
+      </form>
+    </div>        
+
+    <span>Already have an account? <a href="{{ url_for('login') }}">Log in</a></span>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <h3>{{ message }}
+          {% endfor %}
+        {% endif %}
+      {% endwith %} 
+    {% endblock %}
+  </div>      
+
+</body>
+
+</html>
